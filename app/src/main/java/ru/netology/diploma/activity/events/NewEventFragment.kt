@@ -97,7 +97,7 @@ class NewEventFragment : Fragment() {
                 Snackbar.make(binding.scrollView, "", Snackbar.LENGTH_LONG)
                     .setAnchorView(binding.edit)
                     .setTextMaxLines(3)
-                    .setText("Choose the date of your event")
+                    .setText(R.string.choose_the_date_of_your_event)
                     .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                     .show()
                 false
@@ -120,7 +120,7 @@ class NewEventFragment : Fragment() {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "*/*"
             intent.addCategory(Intent.CATEGORY_OPENABLE)
-            val pickIntent = Intent.createChooser (intent,"Select a File")
+            val pickIntent = Intent.createChooser (intent,context?.getString (R.string.select_a_file))
             pickFileResultContract.launch(pickIntent)
 
         }
@@ -233,7 +233,7 @@ class NewEventFragment : Fragment() {
             Snackbar.make(binding.scrollView, "", Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.edit)
                 .setTextMaxLines(3)
-                .setText("Sorry :( \nSomething went wrong \nTry again")
+                .setText(R.string.something_went_wrong)
                 .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                 .show()
 

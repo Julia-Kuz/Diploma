@@ -108,8 +108,8 @@ class DetailedUserCardFragment : Fragment() {
 
 
         val tabLayout: TabLayout = binding.tabLayout
-        tabLayout.addTab(tabLayout.newTab().setText("Wall"), 0, true)
-        tabLayout.addTab(tabLayout.newTab().setText("Jobs"), 1)
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.wall), 0, true)
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.jobs), 1)
 
 
 

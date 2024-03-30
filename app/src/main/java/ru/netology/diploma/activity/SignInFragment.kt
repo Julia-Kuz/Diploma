@@ -70,7 +70,7 @@ class SignInFragment : Fragment() {
             Snackbar.make(binding.signInEnter, "", Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.userLogin)
                 .setTextMaxLines(3)
-                .setText("Wrong login or password")
+                .setText(R.string.wrong_login_or_password)
                 .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                 .show()
         }

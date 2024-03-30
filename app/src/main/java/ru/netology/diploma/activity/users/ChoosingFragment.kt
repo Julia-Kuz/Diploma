@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import ru.netology.diploma.R
 import ru.netology.diploma.adapter.OnInteractionListenerUser
 import ru.netology.diploma.adapter.UserAdapter
 import ru.netology.diploma.adapter.UserAdapter.Companion.selectedItems
@@ -42,7 +43,7 @@ class ChoosingFragment: Fragment() {
         )
 
 
-        binding.likers.text = if (viewModelEvent.speaker) "Choose speakers" else "Choose users"
+        binding.likers.text = if (viewModelEvent.speaker) context?.getString(R.string.choose_speakers) else context?.getString(R.string.choose_users)
         binding.checkbox.isVisible = true
         UserAdapter.choosing = true
 

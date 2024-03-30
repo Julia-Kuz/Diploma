@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import ru.netology.diploma.R
 import ru.netology.diploma.databinding.FragmentNewJobBinding
 import ru.netology.diploma.util.AndroidUtils
 import ru.netology.diploma.util.JobDealtWith
@@ -52,7 +53,7 @@ class EditJobFragment : Fragment() {
                     Snackbar.make(binding.companyJob, "", Snackbar.LENGTH_LONG)
                         .setAnchorView(binding.startJob)
                         .setTextMaxLines(3)
-                        .setText("Fields can't be empty")
+                        .setText(R.string.fields_cant_be_empty)
                         .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                         .show()
                 } else {
@@ -112,7 +113,7 @@ class EditJobFragment : Fragment() {
             Snackbar.make(binding.companyJob, "", Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.companyJob)
                 .setTextMaxLines(3)
-                .setText("Sorry, something went wrong :(")
+                .setText(R.string.something_went_wrong)
                 .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                 .show()
         }

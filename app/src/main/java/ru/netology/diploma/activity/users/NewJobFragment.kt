@@ -41,7 +41,7 @@ class NewJobFragment : Fragment() {
                     Snackbar.make(binding.companyJob, "", Snackbar.LENGTH_LONG)
                         .setAnchorView(binding.startJob)
                         .setTextMaxLines(3)
-                        .setText("Fields can't be empty")
+                        .setText(R.string.fields_cant_be_empty)
                         .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                         .show()
                 } else {
@@ -100,9 +100,13 @@ class NewJobFragment : Fragment() {
             Snackbar.make(binding.companyJob, "", Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.companyJob)
                 .setTextMaxLines(3)
-                .setText("Sorry, something went wrong :(")
+                .setText(R.string.something_went_wrong)
                 .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                 .show()
+        }
+
+        binding.back.setOnClickListener {
+            findNavController().navigateUp()
         }
 
 

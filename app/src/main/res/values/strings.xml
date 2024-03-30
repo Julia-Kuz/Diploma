@@ -73,4 +73,20 @@
     <string name="confirm_your_password">confirm your password</string>
     <string name="channel_remote_name">Server notifications</string>
     <string name="channel_remote_description">Notifications from remote server</string>
+    <string name="looking_for_a_job">Looking for a job</string>
+    <string name="select_a_file">Select a File</string>
+    <string name="removed">Removed</string>
+    <string name="something_went_wrong">Sorry :( \nSomething went wrong \nTry again</string>
+    <string name="choose_the_date_of_your_event">Choose the date of your event</string>
+    <string name="mentioned_users">Mentioned users</string>
+    <string name="wall">Wall</string>
+    <string name="jobs">Jobs</string>
+    <string name="fields_cant_be_empty">Fields can\'t be empty</string>
+    <string name="google_Api_Unavailable">Google Api Unavailable</string>
+    <string name="tap_the_place_to_choose">Tap the place you\'d like to choose</string>
+    <string name="tap_here_to_save_location">Tap here to save location:</string>
+    <string name="wrong_login_or_password">Wrong login or password</string>
+    <string name="jpeg_png_only_maximum_size_2048_2048">jpeg, png format only &amp;the maximum size is 2048*2048</string>
+    <string name="such_user_is_already_registered">Such user is already registered</string>
+
 </resources>

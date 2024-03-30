@@ -34,8 +34,8 @@ class UserAdapter(private val onInteractionListener: OnInteractionListenerUser) 
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val post = getItem(position)
-        holder.bind(post)
+        val user = getItem(position)
+        holder.bind(user)
     }
 
     fun toggleSelection(position: Int) {

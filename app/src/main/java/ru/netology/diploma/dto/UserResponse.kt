@@ -5,5 +5,5 @@ data class UserResponse (
     val login: String,
     val name: String,
     val avatar: String?,
-    var isSelected: Boolean = false
+    val isSelected: Boolean = false
 )

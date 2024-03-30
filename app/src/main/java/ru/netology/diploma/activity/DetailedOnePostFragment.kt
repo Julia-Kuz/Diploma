@@ -54,7 +54,7 @@ class DetailedOnePostFragment : Fragment() {
             binding.apply {
                 author.text = post.author
                 published.text = formatDateTime(post.published)
-                placeOfWork.text = post.authorJob ?: "Looking for a job"
+                placeOfWork.text = post.authorJob ?: context?.getString(R.string.looking_for_a_job)
                 content.text = post.content
                 content.movementMethod = ScrollingMovementMethod()
                 likesIcon.isChecked = post.likedByMe
@@ -165,6 +165,18 @@ class DetailedOnePostFragment : Fragment() {
                 avatarLiker5.isVisible = post.likeOwnerIds.size >= 5
                 avatarLikerMore.isVisible = post.likeOwnerIds.size >= 6
 
+//                post.likeOwnerIds.indices.forEachIndexed { index, userId ->
+//                    val avaUrl = post.users[userId]?.avatar ?: return@forEachIndexed
+//                    when (index) {
+//                        0 -> avatarLiker1.loadCircle(avaUrl)
+//                        1 -> avatarLiker2.loadCircle(avaUrl)
+//                        2 -> avatarLiker3.loadCircle(avaUrl)
+//                        3 -> avatarLiker4.loadCircle(avaUrl)
+//                        4 -> avatarLiker5.loadCircle(avaUrl)
+//                        else -> Unit
+//                    }
+//                }
+
                 if (post.likeOwnerIds.isNotEmpty()) {
                     for (i in (post.likeOwnerIds.indices)) {
                         when (i) {
@@ -228,6 +240,18 @@ class DetailedOnePostFragment : Fragment() {
                 avatarMention5.isVisible = post.mentionIds.size >= 5
                 avatarMentionMore.isVisible = post.mentionIds.size >= 6
 
+//                post.mentionIds.indices.forEachIndexed { index, userId ->
+//                    val avaUrl = post.users[userId]?.avatar ?: return@forEachIndexed
+//                    when (index) {
+//                        0 -> avatarMention1.loadCircle(avaUrl)
+//                        1 -> avatarMention2.loadCircle(avaUrl)
+//                        2 -> avatarMention3.loadCircle(avaUrl)
+//                        3 -> avatarMention4.loadCircle(avaUrl)
+//                        4 -> avatarMention5.loadCircle(avaUrl)
+//                        else -> Unit
+//                    }
+//                }
+
                 if (post.mentionIds.isNotEmpty()) {
                     for (i in (post.mentionIds.indices)) {
                         when (i) {
@@ -277,6 +301,7 @@ class DetailedOnePostFragment : Fragment() {
 
                     }
                 }
+
 
                 avatarMentionMore.setOnClickListener {
                     PostDealtWith.savePostDealtWith(post)

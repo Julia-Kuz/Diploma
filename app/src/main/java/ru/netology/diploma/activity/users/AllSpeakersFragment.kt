@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ru.netology.diploma.R
 import ru.netology.diploma.adapter.OnInteractionListenerUser
 import ru.netology.diploma.adapter.UserAdapter
 import ru.netology.diploma.databinding.FragmentAllLikersBinding
 import ru.netology.diploma.dto.UserResponse
 import ru.netology.diploma.util.EventDealtWith
+import ru.netology.diploma.util.loadCircle
 import ru.netology.diploma.viewmodel.PostViewModel
 import ru.netology.diploma.viewmodel.UserViewModel
 
@@ -35,7 +37,7 @@ class AllSpeakersFragment: Fragment() {
         )
 
         val event = EventDealtWith.get()
-        binding.likers.text = "Speakers"
+        binding.likers.text = context?.getString(R.string.speakers)
 
         UserAdapter.choosing = false
         binding.checkbox.isVisible = false

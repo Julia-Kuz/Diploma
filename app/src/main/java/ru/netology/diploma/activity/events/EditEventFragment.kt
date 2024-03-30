@@ -185,7 +185,7 @@ class EditEventFragment : Fragment() {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "*/*"
             intent.addCategory(Intent.CATEGORY_OPENABLE)
-            val pickIntent = Intent.createChooser(intent, "Select a File")
+            val pickIntent = Intent.createChooser(intent, context?.getString(R.string.select_a_file))
             pickFileResultContract.launch(pickIntent)
 
         }
@@ -281,14 +281,14 @@ class EditEventFragment : Fragment() {
             binding.photoPreview.visibility = View.GONE
             binding.videoPreview.visibility = View.GONE
             binding.audioPreview.visibility = View.GONE
-            val toast = Toast.makeText(context, "Removed", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(context, R.string.removed, Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.CENTER, 0, 0)
             toast.show()
         }
 
         binding.removeLocation.setOnClickListener{
             viewModel.clearLocationEditEvent(event)
-            val toast = Toast.makeText(context, "Removed", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(context, R.string.removed, Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.CENTER, 0, 0)
             toast.show()
         }
@@ -297,7 +297,7 @@ class EditEventFragment : Fragment() {
             viewModelUser.clearChoosing()
             viewModelPost.clearUserChosen()
             viewModel.clearSpeakersEdit()
-            val toast = Toast.makeText(context, "Removed", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(context, R.string.removed, Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.CENTER, 0, 0)
             toast.show()
         }
@@ -336,7 +336,7 @@ class EditEventFragment : Fragment() {
             Snackbar.make(binding.scrollView, "", Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.edit)
                 .setTextMaxLines(3)
-                .setText("Sorry :( \nSomething went wrong \nTry again")
+                .setText(R.string.something_went_wrong)
                 .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                 .show()
 

@@ -93,7 +93,7 @@ class SignUpFragment : Fragment() {
                         Snackbar.make(binding.scrollView, "", Snackbar.LENGTH_LONG)
                             .setAnchorView(binding.signUpEnter)
                             .setTextMaxLines(3)
-                            .setText("jpeg, png format only &\nthe maximum size is 2048*2048")
+                            .setText(R.string.jpeg_png_only_maximum_size_2048_2048)
                             .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                             .show()
                     }
@@ -111,7 +111,7 @@ class SignUpFragment : Fragment() {
             Snackbar.make(binding.signUpEnter, "", Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.signUpEnter)
                 .setTextMaxLines(3)
-                .setText("Such user is already registered")
+                .setText(R.string.such_user_is_already_registered)
                 .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
                 .show()
         }

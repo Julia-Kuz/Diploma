@@ -60,7 +60,7 @@ class DetailedOneEventFragment : Fragment() {
                 publishedEvent.text = formatDateTime(event.published)
                 dateEvent.text = event.datetime?.let { formatDateTime(it) }
                 if (event.type != null) { format.text = event.type.toString() } else format.text = ""
-                placeOfWork.text = event.authorJob ?: "Looking for a job"
+                placeOfWork.text = event.authorJob ?: context?.getString(R.string.looking_for_a_job)
                 content.text = event.content
                 content.movementMethod = ScrollingMovementMethod()
                 likesIcon.isChecked = event.likedByMe
@@ -170,6 +170,16 @@ class DetailedOneEventFragment : Fragment() {
                 speaker3.isVisible = event.speakerIds.size >= 3
                 speakerMore.isVisible = event.speakerIds.size >= 4
 
+//                event.speakerIds.indices.forEachIndexed { index, userId ->
+//                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
+//                    when (index) {
+//                        0 -> speaker1.loadCircle(avaUrl)
+//                        1 -> speaker2.loadCircle(avaUrl)
+//                        2 -> speaker3.loadCircle(avaUrl)
+//                        else -> Unit
+//                    }
+//                }
+
                 if (event.speakerIds.isNotEmpty()) {
                     for (i in (event.speakerIds.indices)) {
                         when (i) {
@@ -203,6 +213,7 @@ class DetailedOneEventFragment : Fragment() {
                     }
                 }
 
+
                 speakerMore.setOnClickListener {
                     EventDealtWith.saveEventDealtWith(event)
                     findNavController().navigate(R.id.action_detailedOneEventFragment_to_allSpeakersFragment)
@@ -216,6 +227,18 @@ class DetailedOneEventFragment : Fragment() {
                 avatarLiker4.isVisible = event.likeOwnerIds.size >= 4
                 avatarLiker5.isVisible = event.likeOwnerIds.size >= 5
                 avatarLikerMore.isVisible = event.likeOwnerIds.size >= 6
+
+//                event.likeOwnerIds.indices.forEachIndexed { index, userId ->
+//                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
+//                    when (index) {
+//                        0 -> avatarLiker1.loadCircle(avaUrl)
+//                        1 -> avatarLiker2.loadCircle(avaUrl)
+//                        2 -> avatarLiker3.loadCircle(avaUrl)
+//                        3 -> avatarLiker4.loadCircle(avaUrl)
+//                        4 -> avatarLiker5.loadCircle(avaUrl)
+//                        else -> Unit
+//                    }
+//                }
 
                 if (event.likeOwnerIds.isNotEmpty()) {
                     for (i in (event.likeOwnerIds.indices)) {
@@ -281,6 +304,18 @@ class DetailedOneEventFragment : Fragment() {
                 avatarParticipant5.isVisible = event.participantsIds.size >= 5
                 avatarParticipantMore.isVisible = event.participantsIds.size >= 6
 
+//                event.participantsIds.indices.forEachIndexed { index, userId ->
+//                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
+//                    when (index) {
+//                        0 -> avatarParticipant1.loadCircle(avaUrl)
+//                        1 -> avatarParticipant2.loadCircle(avaUrl)
+//                        2 -> avatarParticipant3.loadCircle(avaUrl)
+//                        3 -> avatarParticipant4.loadCircle(avaUrl)
+//                        4 -> avatarParticipant5.loadCircle(avaUrl)
+//                        else -> Unit
+//                    }
+//                }
+
                 if (event.participantsIds.isNotEmpty()) {
                     for (i in (event.participantsIds.indices)) {
                         when (i) {
@@ -330,7 +365,6 @@ class DetailedOneEventFragment : Fragment() {
 
                     }
                 }
-
 
                 //карта
 

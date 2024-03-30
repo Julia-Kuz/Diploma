@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 getErrorDialog(this@MainActivity, code, 9000)?.show()
                 return
             }
-            Toast.makeText(this@MainActivity, "Google Api Unavailable", Toast.LENGTH_LONG)
+            Toast.makeText(this@MainActivity, R.string.google_Api_Unavailable, Toast.LENGTH_LONG)
                 .show()
         }
 

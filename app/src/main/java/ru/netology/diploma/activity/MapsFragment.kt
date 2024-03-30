@@ -120,7 +120,7 @@ class MapsFragment : Fragment(), GeoObjectTapListener {
             isZoomGesturesEnabled = true
         }
 
-        val toast = Toast.makeText(context, "Tap the place you'd like to choose", Toast.LENGTH_LONG)
+        val toast = Toast.makeText(context, R.string.tap_the_place_to_choose, Toast.LENGTH_LONG)
         toast.setGravity(Gravity.CENTER, 0, 0 )
         toast.show()
 
@@ -158,7 +158,8 @@ class MapsFragment : Fragment(), GeoObjectTapListener {
 
         viewModel.placeName.observe(viewLifecycleOwner) {
             binding.choosePlaceButton.isVisible = (it != null)
-            binding.choosePlaceButton.text = "Tap here to save location: ${it}"
+            val textToDisplay = context?.getString (R.string.tap_here_to_save_location) + " " + it
+            binding.choosePlaceButton.text = textToDisplay
         }
 
 

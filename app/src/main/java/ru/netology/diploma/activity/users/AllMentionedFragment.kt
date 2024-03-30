@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ru.netology.diploma.R
 import ru.netology.diploma.adapter.OnInteractionListenerUser
 import ru.netology.diploma.adapter.UserAdapter
 import ru.netology.diploma.databinding.FragmentAllLikersBinding
@@ -35,7 +36,7 @@ class AllMentionedFragment: Fragment() {
         )
 
         val post = PostDealtWith.get()
-        binding.likers.text = "Mentioned users"
+        binding.likers.text = context?.getString(R.string.mentioned_users)
 
         UserAdapter.choosing = false
         binding.checkbox.isVisible = false
