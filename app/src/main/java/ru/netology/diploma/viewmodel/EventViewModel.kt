@@ -110,7 +110,6 @@ class EventViewModel @Inject constructor(
                         _dataState.value = FeedModelState()
                         _eventCreated.value = Unit
                     } catch (e: Exception) {
-                        Log.d("My Log", "${e.message}")
                         _dataState.value = FeedModelState(error = true)
                     }
                 }
@@ -190,7 +189,6 @@ class EventViewModel @Inject constructor(
                 _dataState.value = FeedModelState()
                 _eventCreated.value = Unit
             } catch (e: Exception) {
-                Log.d("My Log", "${e.message}")
                 _dataState.value = FeedModelState(error = true)
             }
 

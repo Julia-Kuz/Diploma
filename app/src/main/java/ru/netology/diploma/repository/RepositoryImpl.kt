@@ -131,7 +131,6 @@ class RepositoryImpl @Inject constructor (
         try {
             val response = postApiService.save(post, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                Log.d("My Log", "${response.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
@@ -140,10 +139,8 @@ class RepositoryImpl @Inject constructor (
             dao.insert(PostEntity.fromDto(result))
 
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -154,7 +151,6 @@ class RepositoryImpl @Inject constructor (
             val mediaResponse =saveMedia(attachmentModel)   //отправили изображение на сервер
 
             if (!mediaResponse.isSuccessful) {
-                Log.d("My Log", "${mediaResponse.message()}")
                 throw ApiError(mediaResponse.code(), mediaResponse.message())
             }
 
@@ -163,7 +159,6 @@ class RepositoryImpl @Inject constructor (
             val response = postApiService.save(post.copy(attachment = Attachment(media.url, attachmentModel.type)), BuildConfig.API_KEY) //добавили копию поста, записали в него attachment
 
             if (!response.isSuccessful) {
-                Log.d("My Log", "${mediaResponse.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
@@ -172,10 +167,8 @@ class RepositoryImpl @Inject constructor (
             dao.insert(PostEntity.fromDto(result))
 
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -215,17 +208,14 @@ class RepositoryImpl @Inject constructor (
         try {
             val response = postApiService.removeById(id, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                Log.d("My Log", "${response.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
             response.body() ?: throw ApiError(response.code(), response.message())
             dao.removeById(id)
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -237,17 +227,14 @@ class RepositoryImpl @Inject constructor (
         try {
             val response = postApiService.getUserById (id, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                Log.d("My Log", "${response.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
             return response.body() ?: throw ApiError(response.code(), response.message())
 
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -266,8 +253,6 @@ class RepositoryImpl @Inject constructor (
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {
-            val t = e.message
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -301,8 +286,6 @@ class RepositoryImpl @Inject constructor (
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {
-            val t = e.message
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -313,7 +296,6 @@ class RepositoryImpl @Inject constructor (
         try {
             val response = eventApiService.save(event, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                Log.d("My Log", "${response.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
@@ -322,10 +304,8 @@ class RepositoryImpl @Inject constructor (
             eventDao.insert(EventEntity.fromDto(result))
 
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -336,7 +316,6 @@ class RepositoryImpl @Inject constructor (
             val mediaResponse =saveMedia(attachmentModel)
 
             if (!mediaResponse.isSuccessful) {
-                Log.d("My Log", "${mediaResponse.message()}")
                 throw ApiError(mediaResponse.code(), mediaResponse.message())
             }
 
@@ -345,7 +324,6 @@ class RepositoryImpl @Inject constructor (
             val response = eventApiService.save(event.copy(attachment = Attachment(media.url, attachmentModel.type)), BuildConfig.API_KEY)
 
             if (!response.isSuccessful) {
-                Log.d("My Log", "${mediaResponse.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
@@ -354,10 +332,8 @@ class RepositoryImpl @Inject constructor (
             eventDao.insert(EventEntity.fromDto(result))
 
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -389,17 +365,14 @@ class RepositoryImpl @Inject constructor (
         try {
             val response = eventApiService.removeById(id, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                Log.d("My Log", "${response.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
             response.body() ?: throw ApiError(response.code(), response.message())
             eventDao.removeById(id)
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -420,8 +393,6 @@ class RepositoryImpl @Inject constructor (
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {
-            val t = e.message
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -442,8 +413,6 @@ class RepositoryImpl @Inject constructor (
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {
-            val t = e.message
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -465,8 +434,6 @@ class RepositoryImpl @Inject constructor (
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {
-            val t = e.message
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -475,7 +442,6 @@ class RepositoryImpl @Inject constructor (
         try {
             val response = postApiService.createJob(job, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                Log.d("My Log", "${response.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
@@ -484,10 +450,8 @@ class RepositoryImpl @Inject constructor (
             jobDao.insert(JobEntity.fromDto(result))
 
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }
@@ -496,17 +460,14 @@ class RepositoryImpl @Inject constructor (
         try {
             val response = postApiService.removeJobById(id, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                Log.d("My Log", "${response.message()}")
                 throw ApiError(response.code(), response.message())
             }
 
             response.body() ?: throw ApiError(response.code(), response.message())
            jobDao.removeJobById(id)
         } catch (e: IOException) {
-            Log.d("My Log", "${e.message}")
             throw NetworkError
         } catch (e: Exception) {
-            Log.d("My Log", "${e.message}")
             throw UnknownError
         }
     }

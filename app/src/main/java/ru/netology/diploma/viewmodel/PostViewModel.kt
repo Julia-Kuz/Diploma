@@ -104,7 +104,6 @@ class PostViewModel @Inject constructor(
                         _dataState.value = FeedModelState()
                         _postCreated.value = Unit
                     } catch (e: Exception) {
-                        Log.d("My Log", "${e.message}")
                         _dataState.value = FeedModelState(error = true)
                     }
 
@@ -167,7 +166,6 @@ class PostViewModel @Inject constructor(
                 _dataState.value = FeedModelState()
                 _postCreated.value = Unit
             } catch (e: Exception) {
-                Log.d("My Log", "${e.message}")
                 _dataState.value = FeedModelState(error = true)
             }
 
