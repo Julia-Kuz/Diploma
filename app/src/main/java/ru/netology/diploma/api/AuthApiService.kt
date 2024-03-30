@@ -34,8 +34,5 @@ interface AuthApiService {
         @Header("Api-Key") apiKey: String
     ): Response<AuthState>
 
-    @POST("users/push-tokens")
-    suspend fun sendPushToken (@Body pushToken: PushToken): Response<Unit>
-
 
 }

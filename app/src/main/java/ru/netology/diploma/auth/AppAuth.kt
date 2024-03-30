@@ -54,9 +54,7 @@ class AppAuth @Inject constructor  (
             putString(tokenKey, token)
             apply()
         }
-        sendPushToken()
-
-    }
+     }
 
     @Synchronized
     fun removeAuth() {
@@ -65,7 +63,6 @@ class AppAuth @Inject constructor  (
             clear()
             commit()
         }
-        sendPushToken()
 
     }
 
@@ -129,20 +126,6 @@ class AppAuth @Inject constructor  (
         } catch (e: Exception) {
             throw UnknownError
         }
-
-
-    private fun sendPushToken(token: String? = null) {
-
-        CoroutineScope(Dispatchers.Default).launch {
-            try {
-                val pushToken = PushToken(token ?: FirebaseMessaging.getInstance().token.await())
-                val entryPoint = EntryPointAccessors.fromApplication(context, AppAuthEntryPoint::class.java)
-                entryPoint.getAuthApiService().sendPushToken(pushToken)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
 
 
 }

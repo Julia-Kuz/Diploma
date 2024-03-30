@@ -1,14 +1,10 @@
 package ru.netology.diploma.activity
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
-import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 import ru.netology.diploma.R
 import javax.inject.Inject
@@ -19,31 +15,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     @Inject
     lateinit var googleApiAvailability: GoogleApiAvailability
 
-    @Inject
-    lateinit var firebaseMessaging: FirebaseMessaging
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        requestNotificationsPermission()
-
         checkGoogleApiAvailability()
 
-    }
-
-    private fun requestNotificationsPermission() {                      // из Firebase
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            return
-        }
-
-        val permission = Manifest.permission.POST_NOTIFICATIONS
-
-        if (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED) {
-            return
-        }
-
-        requestPermissions(arrayOf(permission), 1)
     }
 
 
@@ -60,8 +37,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             Toast.makeText(this@MainActivity, R.string.google_Api_Unavailable, Toast.LENGTH_LONG)
                 .show()
         }
-
-        firebaseMessaging.token.addOnSuccessListener {}
 
     }
 
