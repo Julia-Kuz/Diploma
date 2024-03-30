@@ -9,6 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import ru.netology.diploma.BuildConfig
 import ru.netology.diploma.auth.AppAuth
 import javax.inject.Singleton
 
@@ -25,7 +26,9 @@ class ApiModule {
     @Singleton
     @Provides
     fun provideLogger (): HttpLoggingInterceptor = HttpLoggingInterceptor().apply { //устанавливаем уровень логирования
-        level = HttpLoggingInterceptor.Level.BODY
+        if (BuildConfig.DEBUG) {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
     }
 
 
