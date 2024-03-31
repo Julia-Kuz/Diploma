@@ -73,8 +73,8 @@ class AllPostsFragment : Fragment() {
             }
 
             override fun showPost(post: Post) {
-                //PostDealtWith.savePostDealtWith(post)
-                Bundle().apply { postBundle = post }
+                PostDealtWith.savePostDealtWith(post)
+               // Bundle().apply { postBundle = post }
                 findNavController().navigate(R.id.action_allPostsFragment_to_detailedOnePostFragment)
             }
 

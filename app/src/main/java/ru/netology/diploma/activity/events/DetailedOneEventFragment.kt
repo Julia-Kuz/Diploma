@@ -170,49 +170,15 @@ class DetailedOneEventFragment : Fragment() {
                 speaker3.isVisible = event.speakerIds.size >= 3
                 speakerMore.isVisible = event.speakerIds.size >= 4
 
-//                event.speakerIds.indices.forEachIndexed { index, userId ->
-//                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
-//                    when (index) {
-//                        0 -> speaker1.loadCircle(avaUrl)
-//                        1 -> speaker2.loadCircle(avaUrl)
-//                        2 -> speaker3.loadCircle(avaUrl)
-//                        else -> Unit
-//                    }
-//                }
-
-                if (event.speakerIds.isNotEmpty()) {
-                    for (i in (event.speakerIds.indices)) {
-                        when (i) {
-                            0 -> {
-                                viewModel.getUserById(event.speakerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    speaker1.loadCircle(avaUrl)
-                                }
-
-                            }
-
-                            1 -> {
-                                viewModel.getUserById(event.speakerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    speaker2.loadCircle(avaUrl)
-                                }
-                            }
-
-                            2 -> {
-                                viewModel.getUserById(event.speakerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    speaker3.loadCircle(avaUrl)
-                                }
-                            }
-                            else -> Unit
-                        }
-
+                event.speakerIds.forEachIndexed { index, userId ->
+                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
+                    when (index) {
+                        0 -> speaker1.loadCircle(avaUrl)
+                        1 -> speaker2.loadCircle(avaUrl)
+                        2 -> speaker3.loadCircle(avaUrl)
+                        else -> Unit
                     }
                 }
-
 
                 speakerMore.setOnClickListener {
                     EventDealtWith.saveEventDealtWith(event)
@@ -228,65 +194,15 @@ class DetailedOneEventFragment : Fragment() {
                 avatarLiker5.isVisible = event.likeOwnerIds.size >= 5
                 avatarLikerMore.isVisible = event.likeOwnerIds.size >= 6
 
-//                event.likeOwnerIds.indices.forEachIndexed { index, userId ->
-//                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
-//                    when (index) {
-//                        0 -> avatarLiker1.loadCircle(avaUrl)
-//                        1 -> avatarLiker2.loadCircle(avaUrl)
-//                        2 -> avatarLiker3.loadCircle(avaUrl)
-//                        3 -> avatarLiker4.loadCircle(avaUrl)
-//                        4 -> avatarLiker5.loadCircle(avaUrl)
-//                        else -> Unit
-//                    }
-//                }
-
-                if (event.likeOwnerIds.isNotEmpty()) {
-                    for (i in (event.likeOwnerIds.indices)) {
-                        when (i) {
-                            0 -> {
-                                viewModel.getUserById(event.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker1.loadCircle(avaUrl)
-                                }
-
-                            }
-
-                            1 -> {
-                                viewModel.getUserById(event.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker2.loadCircle(avaUrl)
-                                }
-                            }
-
-                            2 -> {
-                                viewModel.getUserById(event.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker3.loadCircle(avaUrl)
-                                }
-                            }
-
-                            3 -> {
-                                viewModel.getUserById(event.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker4.loadCircle(avaUrl)
-                                }
-                            }
-
-                            4 -> {
-                                viewModel.getUserById(event.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker5.loadCircle(avaUrl)
-                                }
-                            }
-
-                            else -> Unit
-                        }
-
+                event.likeOwnerIds.forEachIndexed { index, userId ->
+                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
+                    when (index) {
+                        0 -> avatarLiker1.loadCircle(avaUrl)
+                        1 -> avatarLiker2.loadCircle(avaUrl)
+                        2 -> avatarLiker3.loadCircle(avaUrl)
+                        3 -> avatarLiker4.loadCircle(avaUrl)
+                        4 -> avatarLiker5.loadCircle(avaUrl)
+                        else -> Unit
                     }
                 }
 
@@ -304,67 +220,18 @@ class DetailedOneEventFragment : Fragment() {
                 avatarParticipant5.isVisible = event.participantsIds.size >= 5
                 avatarParticipantMore.isVisible = event.participantsIds.size >= 6
 
-//                event.participantsIds.indices.forEachIndexed { index, userId ->
-//                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
-//                    when (index) {
-//                        0 -> avatarParticipant1.loadCircle(avaUrl)
-//                        1 -> avatarParticipant2.loadCircle(avaUrl)
-//                        2 -> avatarParticipant3.loadCircle(avaUrl)
-//                        3 -> avatarParticipant4.loadCircle(avaUrl)
-//                        4 -> avatarParticipant5.loadCircle(avaUrl)
-//                        else -> Unit
-//                    }
-//                }
-
-                if (event.participantsIds.isNotEmpty()) {
-                    for (i in (event.participantsIds.indices)) {
-                        when (i) {
-                            0 -> {
-                                viewModel.getUserById(event.participantsIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarParticipant1.loadCircle(avaUrl)
-                                }
-
-                            }
-
-                            1 -> {
-                                viewModel.getUserById(event.participantsIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarParticipant2.loadCircle(avaUrl)
-                                }
-                            }
-
-                            2 -> {
-                                viewModel.getUserById(event.participantsIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarParticipant3.loadCircle(avaUrl)
-                                }
-                            }
-
-                            3 -> {
-                                viewModel.getUserById(event.participantsIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarParticipant4.loadCircle(avaUrl)
-                                }
-                            }
-
-                            4 -> {
-                                viewModel.getUserById(event.participantsIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarParticipant5.loadCircle(avaUrl)
-                                }
-                            }
-
-                            else -> Unit
-                        }
-
+                event.participantsIds.forEachIndexed { index, userId ->
+                    val avaUrl = event.users[userId]?.avatar ?: return@forEachIndexed
+                    when (index) {
+                        0 -> avatarParticipant1.loadCircle(avaUrl)
+                        1 -> avatarParticipant2.loadCircle(avaUrl)
+                        2 -> avatarParticipant3.loadCircle(avaUrl)
+                        3 -> avatarParticipant4.loadCircle(avaUrl)
+                        4 -> avatarParticipant5.loadCircle(avaUrl)
+                        else -> Unit
                     }
                 }
+
 
                 //карта
 

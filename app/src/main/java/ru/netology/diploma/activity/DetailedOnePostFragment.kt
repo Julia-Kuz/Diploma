@@ -53,25 +53,25 @@ class DetailedOnePostFragment : Fragment() {
             false
         )
 
-        //val post = PostDealtWith.get()
+        val post = PostDealtWith.get()
 
-        val post = arguments?.postBundle ?: Post(
-            id = 0,
-            author = "",
-            authorId = 0,
-            authorJob = null,
-            authorAvatar = null,
-            content = "error",
-            published = published(),
-            coords = null,
-            link = null,
-            mentionIds = emptyList(),
-            mentionedMe = false,
-            likeOwnerIds = emptyList(),
-            likedByMe = false,
-            attachment = null,
-            users = emptyMap(),
-        )
+//        val post = arguments?.postBundle ?: Post(
+//            id = 0,
+//            author = "",
+//            authorId = 0,
+//            authorJob = null,
+//            authorAvatar = null,
+//            content = "error",
+//            published = published(),
+//            coords = null,
+//            link = null,
+//            mentionIds = emptyList(),
+//            mentionedMe = false,
+//            likeOwnerIds = emptyList(),
+//            likedByMe = false,
+//            attachment = null,
+//            users = emptyMap(),
+//        )
 
         binding.content.movementMethod = ScrollingMovementMethod()
 
@@ -190,65 +190,15 @@ class DetailedOnePostFragment : Fragment() {
                 avatarLiker5.isVisible = post.likeOwnerIds.size >= 5
                 avatarLikerMore.isVisible = post.likeOwnerIds.size >= 6
 
-//                post.likeOwnerIds.indices.forEachIndexed { index, userId ->
-//                    val avaUrl = post.users[userId]?.avatar ?: return@forEachIndexed
-//                    when (index) {
-//                        0 -> avatarLiker1.loadCircle(avaUrl)
-//                        1 -> avatarLiker2.loadCircle(avaUrl)
-//                        2 -> avatarLiker3.loadCircle(avaUrl)
-//                        3 -> avatarLiker4.loadCircle(avaUrl)
-//                        4 -> avatarLiker5.loadCircle(avaUrl)
-//                        else -> Unit
-//                    }
-//                }
-
-                if (post.likeOwnerIds.isNotEmpty()) {
-                    for (i in (post.likeOwnerIds.indices)) {
-                        when (i) {
-                            0 -> {
-                                viewModel.getUserById(post.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker1.loadCircle(avaUrl)
-                                }
-
-                            }
-
-                            1 -> {
-                                viewModel.getUserById(post.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker2.loadCircle(avaUrl)
-                                }
-                            }
-
-                            2 -> {
-                                viewModel.getUserById(post.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker3.loadCircle(avaUrl)
-                                }
-                            }
-
-                            3 -> {
-                                viewModel.getUserById(post.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker4.loadCircle(avaUrl)
-                                }
-                            }
-
-                            4 -> {
-                                viewModel.getUserById(post.likeOwnerIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarLiker5.loadCircle(avaUrl)
-                                }
-                            }
-
-                            else -> Unit
-                        }
-
+                post.likeOwnerIds.forEachIndexed { index, userId ->
+                    val avaUrl = post.users[userId]?.avatar ?: return@forEachIndexed
+                    when (index) {
+                        0 -> avatarLiker1.loadCircle(avaUrl)
+                        1 -> avatarLiker2.loadCircle(avaUrl)
+                        2 -> avatarLiker3.loadCircle(avaUrl)
+                        3 -> avatarLiker4.loadCircle(avaUrl)
+                        4 -> avatarLiker5.loadCircle(avaUrl)
+                        else -> Unit
                     }
                 }
 
@@ -265,65 +215,15 @@ class DetailedOnePostFragment : Fragment() {
                 avatarMention5.isVisible = post.mentionIds.size >= 5
                 avatarMentionMore.isVisible = post.mentionIds.size >= 6
 
-//                post.mentionIds.indices.forEachIndexed { index, userId ->
-//                    val avaUrl = post.users[userId]?.avatar ?: return@forEachIndexed
-//                    when (index) {
-//                        0 -> avatarMention1.loadCircle(avaUrl)
-//                        1 -> avatarMention2.loadCircle(avaUrl)
-//                        2 -> avatarMention3.loadCircle(avaUrl)
-//                        3 -> avatarMention4.loadCircle(avaUrl)
-//                        4 -> avatarMention5.loadCircle(avaUrl)
-//                        else -> Unit
-//                    }
-//                }
-
-                if (post.mentionIds.isNotEmpty()) {
-                    for (i in (post.mentionIds.indices)) {
-                        when (i) {
-                            0 -> {
-                                viewModel.getUserById(post.mentionIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarMention1.loadCircle(avaUrl)
-                                }
-
-                            }
-
-                            1 -> {
-                                viewModel.getUserById(post.mentionIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarMention2.loadCircle(avaUrl)
-                                }
-                            }
-
-                            2 -> {
-                                viewModel.getUserById(post.mentionIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarMention3.loadCircle(avaUrl)
-                                }
-                            }
-
-                            3 -> {
-                                viewModel.getUserById(post.mentionIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarMention4.loadCircle(avaUrl)
-                                }
-                            }
-
-                            4 -> {
-                                viewModel.getUserById(post.mentionIds[i])
-                                val avaUrl = viewModel.userList.value?.avatar
-                                if (avaUrl != null) {
-                                    avatarMention5.loadCircle(avaUrl)
-                                }
-                            }
-
-                            else -> Unit
-                        }
-
+                post.mentionIds.forEachIndexed { index, userId ->
+                    val avaUrl = post.users[userId]?.avatar ?: return@forEachIndexed
+                    when (index) {
+                        0 -> avatarMention1.loadCircle(avaUrl)
+                        1 -> avatarMention2.loadCircle(avaUrl)
+                        2 -> avatarMention3.loadCircle(avaUrl)
+                        3 -> avatarMention4.loadCircle(avaUrl)
+                        4 -> avatarMention5.loadCircle(avaUrl)
+                        else -> Unit
                     }
                 }
 
