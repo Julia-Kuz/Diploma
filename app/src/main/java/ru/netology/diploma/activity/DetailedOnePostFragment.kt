@@ -22,15 +22,22 @@ import ru.netology.diploma.R
 import ru.netology.diploma.databinding.FragmentDetailedOnePostBinding
 import ru.netology.diploma.dto.AttachmentType
 import ru.netology.diploma.dto.Post
+import ru.netology.diploma.util.PostBundle
 import ru.netology.diploma.util.PostDealtWith
 import ru.netology.diploma.util.formatDateTime
 import ru.netology.diploma.util.load
 import ru.netology.diploma.util.loadCircle
 import ru.netology.diploma.util.numberRepresentation
+import ru.netology.diploma.util.published
 import ru.netology.diploma.viewmodel.PostViewModel
 
 @AndroidEntryPoint
 class DetailedOnePostFragment : Fragment() {
+
+    companion object {
+        var Bundle.postBundle: Post? by PostBundle
+    }
+
 
     private val viewModel: PostViewModel by activityViewModels()
     private val mediaObserver = MediaLifecycleObserver()
@@ -46,7 +53,25 @@ class DetailedOnePostFragment : Fragment() {
             false
         )
 
-        val post = PostDealtWith.get()
+        //val post = PostDealtWith.get()
+
+        val post = arguments?.postBundle ?: Post(
+            id = 0,
+            author = "",
+            authorId = 0,
+            authorJob = null,
+            authorAvatar = null,
+            content = "error",
+            published = published(),
+            coords = null,
+            link = null,
+            mentionIds = emptyList(),
+            mentionedMe = false,
+            likeOwnerIds = emptyList(),
+            likedByMe = false,
+            attachment = null,
+            users = emptyMap(),
+        )
 
         binding.content.movementMethod = ScrollingMovementMethod()
 

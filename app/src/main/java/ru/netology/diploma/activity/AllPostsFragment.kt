@@ -24,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import ru.netology.diploma.R
+import ru.netology.diploma.activity.DetailedOnePostFragment.Companion.postBundle
 import ru.netology.diploma.adapter.OnInteractionListener
 import ru.netology.diploma.adapter.PostsAdapter
 import ru.netology.diploma.databinding.FragmentAllPostsBinding
@@ -72,7 +73,8 @@ class AllPostsFragment : Fragment() {
             }
 
             override fun showPost(post: Post) {
-                PostDealtWith.savePostDealtWith(post)
+                //PostDealtWith.savePostDealtWith(post)
+                Bundle().apply { postBundle = post }
                 findNavController().navigate(R.id.action_allPostsFragment_to_detailedOnePostFragment)
             }
 
