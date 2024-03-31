@@ -1,7 +1,6 @@
 package ru.netology.diploma.viewmodel
 
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -49,6 +48,7 @@ private val defaultPost = Post(
     users = emptyMap(),
 )
 
+@Suppress("unused")
 @HiltViewModel
 class PostViewModel @Inject constructor(
     private val repository: Repository,

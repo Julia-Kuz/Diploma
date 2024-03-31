@@ -14,12 +14,9 @@ import retrofit2.http.Query
 import ru.netology.diploma.dto.Job
 import ru.netology.diploma.dto.Media
 import ru.netology.diploma.dto.Post
-import ru.netology.diploma.dto.PushToken
 import ru.netology.diploma.dto.UserResponse
 
 interface PostsApiService {
-    @GET("posts")
-    suspend fun getAll (@Header("Api-Key") apiKey: String) : Response<List<Post>>   // импортировать нужно из retrofit2
 
     @GET("posts/latest")
     suspend fun getLatest (@Query("count") count: Int, @Header("Api-Key") apiKey: String) : Response<List<Post>>

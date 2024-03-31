@@ -35,7 +35,7 @@ import ru.netology.diploma.util.getInputStreamFromUri
 import ru.netology.diploma.viewmodel.EventViewModel
 import ru.netology.diploma.viewmodel.PostViewModel
 
-
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class NewEventFragment : Fragment() {
 
@@ -98,7 +98,7 @@ class NewEventFragment : Fragment() {
                     .setAnchorView(binding.edit)
                     .setTextMaxLines(3)
                     .setText(R.string.choose_the_date_of_your_event)
-                    .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
+                    .setBackgroundTint(Color.rgb(0, 102, 255))
                     .show()
                 false
             }  else {
@@ -234,7 +234,7 @@ class NewEventFragment : Fragment() {
                 .setAnchorView(binding.edit)
                 .setTextMaxLines(3)
                 .setText(R.string.something_went_wrong)
-                .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
+                .setBackgroundTint(Color.rgb(0, 102, 255))
                 .show()
 
         }

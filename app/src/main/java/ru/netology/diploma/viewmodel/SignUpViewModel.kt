@@ -15,7 +15,7 @@ import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
-class SignUpViewModel @Inject constructor (private val appAuth: AppAuth): ViewModel() {
+class SignUpViewModel @Inject constructor (appAuth: AppAuth): ViewModel() {
     private val dataAuth = appAuth
 
     private val _response = SingleLiveEvent<Unit>()

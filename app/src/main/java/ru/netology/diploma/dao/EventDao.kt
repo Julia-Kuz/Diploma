@@ -5,15 +5,11 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 import ru.netology.diploma.entity.EventEntity
-import ru.netology.diploma.entity.PostEntity
 
 
 @Dao
 interface EventDao {
-    @Query("SELECT * FROM EventEntity ORDER BY id DESC")
-    fun getAll(): Flow<List<EventEntity>>  // Правильный импорт д.б. - kotlinx.coroutines.flow.Flow !!!
 
     @Query("SELECT * FROM EventEntity ORDER BY id DESC") //пагинация
     fun getPagingSource(): PagingSource<Int, EventEntity>

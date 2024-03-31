@@ -9,9 +9,6 @@ import ru.netology.diploma.entity.EventRemoteKeyEntity
 @Dao
 interface EventRemoteKeyDao {
 
-    @Query("SELECT MAX(id) FROM EventRemoteKeyEntity")
-    suspend fun max(): Int?
-
     @Query("SELECT MIN(id) FROM EventRemoteKeyEntity")
     suspend fun min(): Int?
 

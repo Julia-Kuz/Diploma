@@ -5,13 +5,10 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 import ru.netology.diploma.entity.PostEntity
 
 @Dao
 interface PostDao {
-    @Query("SELECT * FROM PostEntity ORDER BY id DESC")
-    fun getAll(): Flow<List<PostEntity>>  // Правильный импорт д.б. - kotlinx.coroutines.flow.Flow !!!
 
     @Query("SELECT * FROM PostEntity ORDER BY id DESC") //пагинация
     fun getPagingSource(): PagingSource<Int, PostEntity>

@@ -17,6 +17,7 @@ import ru.netology.diploma.util.formatDateTime
 import ru.netology.diploma.viewmodel.EventViewModel
 import java.util.Calendar
 
+@Suppress("unused")
 class EventBottomSheetDialogue : BottomSheetDialogFragment() {
 
     lateinit var binding: FragmentEventBottomSheetDialogueBinding

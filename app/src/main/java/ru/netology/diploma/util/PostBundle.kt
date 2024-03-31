@@ -89,7 +89,7 @@ fun coordsToBundle(coords: Coordinates?): Bundle {
     return bundle
 }
 
-fun coordsFromBundle(bundle: Bundle): Coordinates? {
+fun coordsFromBundle(bundle: Bundle): Coordinates {
     val latitude = bundle.getDouble("latitude")
     val longitude = bundle.getDouble("longitude")
 
@@ -112,7 +112,7 @@ fun attachmentTypeToBundle(type: AttachmentType?): Bundle {
     return bundle
 }
 
-fun attachmentTypeFromBundle(bundle: Bundle): AttachmentType? {
+fun attachmentTypeFromBundle(bundle: Bundle): AttachmentType {
     val typeName = bundle.getString("type", null)
     return typeName?.let { enumValueOf<AttachmentType>(it) } ?: AttachmentType.Unknown
 }

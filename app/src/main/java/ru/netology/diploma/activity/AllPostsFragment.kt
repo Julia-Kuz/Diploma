@@ -4,7 +4,6 @@ import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -14,6 +13,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -24,7 +24,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import ru.netology.diploma.R
-import ru.netology.diploma.activity.DetailedOnePostFragment.Companion.postBundle
 import ru.netology.diploma.adapter.OnInteractionListener
 import ru.netology.diploma.adapter.PostsAdapter
 import ru.netology.diploma.databinding.FragmentAllPostsBinding
@@ -33,6 +32,7 @@ import ru.netology.diploma.util.PostDealtWith
 import ru.netology.diploma.viewmodel.AuthViewModel
 import ru.netology.diploma.viewmodel.PostViewModel
 
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class AllPostsFragment : Fragment() {
 

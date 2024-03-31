@@ -29,7 +29,7 @@ interface Repository {
     suspend fun updateUsers(user: UserResponse, isSelected: Boolean)
     suspend fun deselectUsers (isSelected: Boolean)
 
-    suspend fun getAllEvents()
+
     suspend fun saveEvent(event: Event)
     suspend fun likeEventById(id: Int, flag: Boolean)
     suspend fun removeEventById(id: Int)

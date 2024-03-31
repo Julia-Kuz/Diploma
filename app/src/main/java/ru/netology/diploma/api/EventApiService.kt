@@ -9,12 +9,9 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 import ru.netology.diploma.dto.Event
-import ru.netology.diploma.dto.Post
 
 
 interface EventApiService {
-    @GET("events")
-    suspend fun getAll (@Header("Api-Key") apiKey: String) : Response<List<Event>>
 
     @GET("events/latest")
     suspend fun getLatest (@Query("count") count: Int, @Header("Api-Key") apiKey: String) : Response<List<Event>>

@@ -31,7 +31,7 @@ import ru.netology.diploma.util.numberRepresentation
 import ru.netology.diploma.viewmodel.AuthViewModel
 import ru.netology.diploma.viewmodel.EventViewModel
 
-
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class DetailedOneEventFragment : Fragment() {
 

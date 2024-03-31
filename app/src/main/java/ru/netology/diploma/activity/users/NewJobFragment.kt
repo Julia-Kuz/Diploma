@@ -17,6 +17,7 @@ import ru.netology.diploma.util.formatDateTimeJob
 import ru.netology.diploma.viewmodel.UserViewModel
 import java.util.Calendar
 
+@Suppress("unused")
 @AndroidEntryPoint
 class NewJobFragment : Fragment() {
 
@@ -90,6 +91,10 @@ class NewJobFragment : Fragment() {
                 }, year, month, day)
 
             datePickerDialog.show()
+        }
+
+        binding.back.setOnClickListener {
+            findNavController().navigateUp()
         }
 
         viewModelUser.jobCreated.observe(viewLifecycleOwner) {

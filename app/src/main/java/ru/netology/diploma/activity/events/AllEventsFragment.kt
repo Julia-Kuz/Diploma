@@ -1,3 +1,11 @@
+@file:Suppress("unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
+    "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
+    "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
+    "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
+    "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
+    "unused", "unused", "unused", "unused", "unused", "unused"
+)
+
 package ru.netology.diploma.activity.events
 
 import ru.netology.diploma.activity.MediaLifecycleObserver
@@ -24,7 +32,6 @@ import androidx.paging.LoadState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import okhttp3.internal.format
 import ru.netology.diploma.R
 import ru.netology.diploma.adapter.EventAdapter
 import ru.netology.diploma.adapter.OnInteractionListenerEvent
@@ -34,6 +41,7 @@ import ru.netology.diploma.util.EventDealtWith
 import ru.netology.diploma.viewmodel.AuthViewModel
 import ru.netology.diploma.viewmodel.EventViewModel
 
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class AllEventsFragment : Fragment() {
 

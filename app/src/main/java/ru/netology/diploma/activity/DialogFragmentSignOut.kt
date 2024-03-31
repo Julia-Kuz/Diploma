@@ -10,6 +10,7 @@ import ru.netology.diploma.R
 import ru.netology.diploma.databinding.FragmentDialogSignOutBinding
 import ru.netology.diploma.viewmodel.SignInViewModel
 
+@Suppress("unused")
 class DialogFragmentSignOut : Fragment() {
 
     private val viewModelSignIn: SignInViewModel by activityViewModels()

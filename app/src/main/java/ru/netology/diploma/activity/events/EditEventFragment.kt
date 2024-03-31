@@ -44,6 +44,7 @@ import ru.netology.diploma.viewmodel.PostViewModel
 import ru.netology.diploma.viewmodel.UserViewModel
 import java.util.Calendar
 
+@Suppress("unused", "unused", "unused")
 @AndroidEntryPoint
 class EditEventFragment : Fragment() {
 
@@ -277,7 +278,7 @@ class EditEventFragment : Fragment() {
 
         binding.removeAttachment.setOnClickListener{
             viewModel.clearAttachment()
-            viewModel.clearAttachmentEditEvent(event)
+            viewModel.clearAttachmentEditEvent()
             binding.photoPreview.visibility = View.GONE
             binding.videoPreview.visibility = View.GONE
             binding.audioPreview.visibility = View.GONE
@@ -287,7 +288,7 @@ class EditEventFragment : Fragment() {
         }
 
         binding.removeLocation.setOnClickListener{
-            viewModel.clearLocationEditEvent(event)
+            viewModel.clearLocationEditEvent()
             val toast = Toast.makeText(context, R.string.removed, Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.CENTER, 0, 0)
             toast.show()
@@ -337,7 +338,7 @@ class EditEventFragment : Fragment() {
                 .setAnchorView(binding.edit)
                 .setTextMaxLines(3)
                 .setText(R.string.something_went_wrong)
-                .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
+                .setBackgroundTint(Color.rgb(0, 102, 255))
                 .show()
 
         }

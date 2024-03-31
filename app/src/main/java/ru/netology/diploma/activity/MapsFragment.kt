@@ -31,6 +31,7 @@ import ru.netology.diploma.R
 import ru.netology.diploma.databinding.FragmentMapsBinding
 import ru.netology.diploma.viewmodel.PostViewModel
 
+@Suppress("unused")
 @AndroidEntryPoint
 class MapsFragment : Fragment(), GeoObjectTapListener {
 

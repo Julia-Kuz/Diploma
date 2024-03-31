@@ -19,6 +19,7 @@ import ru.netology.diploma.util.formatDateTimeJobBinding
 import ru.netology.diploma.viewmodel.UserViewModel
 import java.util.Calendar
 
+@Suppress("unused")
 @AndroidEntryPoint
 class EditJobFragment : Fragment() {
 

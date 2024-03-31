@@ -17,6 +17,7 @@ import ru.netology.diploma.util.EventDealtWith
 import ru.netology.diploma.viewmodel.PostViewModel
 import ru.netology.diploma.viewmodel.UserViewModel
 
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class AllLikersEventFragment: Fragment() {
 

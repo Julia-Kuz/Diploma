@@ -15,6 +15,7 @@ import ru.netology.diploma.R
 import ru.netology.diploma.databinding.FragmentSignInBinding
 import ru.netology.diploma.viewmodel.SignInViewModel
 
+@Suppress("unused")
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
 

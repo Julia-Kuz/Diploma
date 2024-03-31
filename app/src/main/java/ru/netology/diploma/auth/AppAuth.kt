@@ -1,24 +1,18 @@
 package ru.netology.diploma.auth
 
 import android.content.Context
-import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import ru.netology.diploma.BuildConfig
 import ru.netology.diploma.api.AuthApiService
-import ru.netology.diploma.dto.PushToken
 import ru.netology.diploma.error.ApiError
 import ru.netology.diploma.error.NetworkError
 import ru.netology.diploma.error.UnknownError
@@ -77,11 +71,11 @@ class AppAuth @Inject constructor  (
             val entryPoint = EntryPointAccessors.fromApplication(context, AppAuthEntryPoint::class.java)
             val response =  entryPoint.getAuthApiService().checkUser(login, password, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                throw ApiError(response.code(), response.message())
+                throw ApiError(response.message())
             }
 
             val responseBody = response.body()
-            responseBody?: throw ApiError(response.code(), response.message())
+            responseBody?: throw ApiError(response.message())
 
         } catch (e: IOException) {
             throw NetworkError
@@ -94,11 +88,11 @@ class AppAuth @Inject constructor  (
             val entryPoint = EntryPointAccessors.fromApplication(context, AppAuthEntryPoint::class.java)
             val response =  entryPoint.getAuthApiService().registerUser(login, password, name, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                throw ApiError(response.code(), response.message())
+                throw ApiError(response.message())
             }
 
             val responseBody = response.body()
-            responseBody?: throw ApiError(response.code(), response.message())
+            responseBody?: throw ApiError(response.message())
 
         } catch (e: IOException) {
             throw NetworkError
@@ -115,11 +109,11 @@ class AppAuth @Inject constructor  (
             val entryPoint = EntryPointAccessors.fromApplication(context, AppAuthEntryPoint::class.java)
             val response =  entryPoint.getAuthApiService().registerWithPhoto (loginRequest, passwordRequest, nameRequest, part, BuildConfig.API_KEY)
             if (!response.isSuccessful) {
-                throw ApiError(response.code(), response.message())
+                throw ApiError(response.message())
             }
 
             val responseBody = response.body()
-            responseBody?: throw ApiError(response.code(), response.message())
+            responseBody?: throw ApiError(response.message())
 
         } catch (e: IOException) {
             throw NetworkError

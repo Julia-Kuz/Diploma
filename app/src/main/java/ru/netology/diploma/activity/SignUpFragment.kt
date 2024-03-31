@@ -23,7 +23,7 @@ import ru.netology.diploma.model.AttachmentModel
 import ru.netology.diploma.viewmodel.SignUpViewModel
 import java.io.File
 import java.util.Locale
-
+@Suppress("unused")
 @AndroidEntryPoint
 class SignUpFragment : Fragment() {
 

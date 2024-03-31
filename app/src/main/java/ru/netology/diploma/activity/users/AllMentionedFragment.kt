@@ -17,7 +17,7 @@ import ru.netology.diploma.dto.UserResponse
 import ru.netology.diploma.util.PostDealtWith
 import ru.netology.diploma.viewmodel.PostViewModel
 import ru.netology.diploma.viewmodel.UserViewModel
-
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class AllMentionedFragment: Fragment() {
 

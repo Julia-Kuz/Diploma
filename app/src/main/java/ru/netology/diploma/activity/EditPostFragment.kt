@@ -37,7 +37,7 @@ import ru.netology.diploma.util.load
 import ru.netology.diploma.viewmodel.PostViewModel
 import ru.netology.diploma.viewmodel.UserViewModel
 
-
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class EditPostFragment : Fragment() {
 
@@ -276,7 +276,7 @@ class EditPostFragment : Fragment() {
                 .setAnchorView(binding.edit)
                 .setTextMaxLines(3)
                 .setText(R.string.something_went_wrong)
-                .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
+                .setBackgroundTint(Color.rgb(0, 102, 255))
                 .show()
 
         }

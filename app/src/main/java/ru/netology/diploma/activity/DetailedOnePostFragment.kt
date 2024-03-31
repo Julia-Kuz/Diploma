@@ -4,12 +4,12 @@ import android.graphics.PointF
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.yandex.mapkit.MapKitFactory
@@ -28,9 +28,9 @@ import ru.netology.diploma.util.formatDateTime
 import ru.netology.diploma.util.load
 import ru.netology.diploma.util.loadCircle
 import ru.netology.diploma.util.numberRepresentation
-import ru.netology.diploma.util.published
 import ru.netology.diploma.viewmodel.PostViewModel
 
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class DetailedOnePostFragment : Fragment() {
 

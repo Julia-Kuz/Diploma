@@ -8,10 +8,6 @@ import ru.netology.diploma.entity.PostRemoteKeyEntity
 
 @Dao
 interface PostRemoteKeyDao {
-
-    @Query("SELECT MAX(id) FROM PostRemoteKeyEntity")
-    suspend fun max(): Int?
-
     @Query("SELECT MIN(id) FROM PostRemoteKeyEntity")
     suspend fun min(): Int?
 

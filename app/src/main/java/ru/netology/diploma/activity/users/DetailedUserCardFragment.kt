@@ -27,13 +27,13 @@ import ru.netology.diploma.dto.Job
 import ru.netology.diploma.dto.Post
 import ru.netology.diploma.dto.UserResponse
 import ru.netology.diploma.util.JobDealtWith
-import ru.netology.diploma.util.PostDealtWith
 import ru.netology.diploma.util.UserDealtWith
 import ru.netology.diploma.util.load
 import ru.netology.diploma.viewmodel.AuthViewModel
 import ru.netology.diploma.viewmodel.PostViewModel
 import ru.netology.diploma.viewmodel.UserViewModel
 
+@Suppress("unused", "unused", "unused")
 @AndroidEntryPoint
 class DetailedUserCardFragment : Fragment() {
 
@@ -170,6 +170,9 @@ class DetailedUserCardFragment : Fragment() {
 
         bind(user)
 
+        binding.back.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         binding.addPostJob.setOnClickListener {
 
@@ -192,10 +195,6 @@ class DetailedUserCardFragment : Fragment() {
                 }
             }.show()
 
-        }
-
-        binding.back.setOnClickListener {
-            findNavController().navigateUp()
         }
 
         viewLifecycleOwner.lifecycleScope.launch {

@@ -15,10 +15,10 @@ import ru.netology.diploma.adapter.UserAdapter
 import ru.netology.diploma.databinding.FragmentAllLikersBinding
 import ru.netology.diploma.dto.UserResponse
 import ru.netology.diploma.util.EventDealtWith
-import ru.netology.diploma.util.loadCircle
 import ru.netology.diploma.viewmodel.PostViewModel
 import ru.netology.diploma.viewmodel.UserViewModel
 
+@Suppress("unused", "unused")
 @AndroidEntryPoint
 class AllSpeakersFragment: Fragment() {
 

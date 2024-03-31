@@ -1,3 +1,5 @@
+@file:Suppress("KotlinConstantConditions", "KotlinConstantConditions")
+
 package ru.netology.diploma.repository
 
 import androidx.paging.ExperimentalPagingApi
@@ -15,15 +17,19 @@ import ru.netology.diploma.entity.EventRemoteKeyEntity
 import ru.netology.diploma.error.ApiError
 
 
+@Suppress("KotlinConstantConditions", "KotlinConstantConditions")
 @OptIn(ExperimentalPagingApi::class)
-class EventRemoteMediator (
+class EventRemoteMediator(
     private val service: EventApiService,
     private val eventDao: EventDao,
     private val eventRemoteKeyDao: EventRemoteKeyDao,
     private val appDb: AppDb
 ) : RemoteMediator<Int, EventEntity>() {
 
-    override suspend fun load(loadType: LoadType, state: PagingState<Int, EventEntity>): MediatorResult {
+    override suspend fun load(
+        loadType: LoadType,
+        state: PagingState<Int, EventEntity>
+    ): MediatorResult {
 
         try {
 
@@ -37,7 +43,8 @@ class EventRemoteMediator (
 
                 LoadType.APPEND -> {
                     val id = eventRemoteKeyDao.min() ?: return MediatorResult.Success(
-                        endOfPaginationReached = false)
+                        endOfPaginationReached = false
+                    )
 
                     service.getBefore(id, state.config.pageSize, BuildConfig.API_KEY)
                 }
@@ -46,54 +53,52 @@ class EventRemoteMediator (
 
 
             if (!response.isSuccessful) {
-                throw ApiError(response.code(), response.message())
+                throw ApiError(response.message())
             }
             val bodyResponse = response.body() ?: throw ApiError(
-                response.code(),
                 response.message(),
             )
 
             if (bodyResponse.isEmpty()) return MediatorResult.Success(endOfPaginationReached = true)
-            if ( bodyResponse.isNotEmpty())
-            {
-                appDb.withTransaction {
-                    when (loadType) {
-                        LoadType.REFRESH -> {
 
-                            eventRemoteKeyDao.removeAll()
-                            eventRemoteKeyDao.insert(
-                                listOf(
-                                    EventRemoteKeyEntity(
-                                        type = EventRemoteKeyEntity.KeyType.AFTER,
-                                        id = bodyResponse.first().id,
-                                    ),
-                                    EventRemoteKeyEntity(
-                                        type = EventRemoteKeyEntity.KeyType.BEFORE,
-                                        id = bodyResponse.last().id,
-                                    )
-                                )
-                            )
-                            eventDao.removeAll()
-                        }
+            appDb.withTransaction {
+                when (loadType) {
+                    LoadType.REFRESH -> {
 
-
-                        LoadType.PREPEND -> Unit
-
-                        LoadType.APPEND -> {
-                            eventRemoteKeyDao.insert(
+                        eventRemoteKeyDao.removeAll()
+                        eventRemoteKeyDao.insert(
+                            listOf(
+                                EventRemoteKeyEntity(
+                                    type = EventRemoteKeyEntity.KeyType.AFTER,
+                                    id = bodyResponse.first().id,
+                                ),
                                 EventRemoteKeyEntity(
                                     type = EventRemoteKeyEntity.KeyType.BEFORE,
                                     id = bodyResponse.last().id,
                                 )
                             )
-                        }
-
+                        )
+                        eventDao.removeAll()
                     }
 
-                    eventDao.insert(bodyResponse.map { EventEntity.fromDto(it) })
+
+                    LoadType.PREPEND -> Unit
+
+                    LoadType.APPEND -> {
+                        eventRemoteKeyDao.insert(
+                            EventRemoteKeyEntity(
+                                type = EventRemoteKeyEntity.KeyType.BEFORE,
+                                id = bodyResponse.last().id,
+                            )
+                        )
+                    }
 
                 }
+
+                eventDao.insert(bodyResponse.map { EventEntity.fromDto(it) })
+
             }
+
 
             return MediatorResult.Success(endOfPaginationReached = bodyResponse.isEmpty())
 

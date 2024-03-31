@@ -6,6 +6,7 @@ import ru.netology.diploma.auth.AppAuth
 import javax.inject.Inject
 
 
+@Suppress("BooleanMethodIsAlwaysInverted")
 @HiltViewModel
 class AuthViewModel @Inject constructor (private val appAuth: AppAuth): ViewModel() {
 

@@ -1,7 +1,6 @@
 package ru.netology.diploma.viewmodel
 
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,13 +15,11 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import ru.netology.diploma.auth.AppAuth
 import ru.netology.diploma.dto.AttachmentType
 import ru.netology.diploma.dto.Coordinates
 import ru.netology.diploma.dto.Event
 import ru.netology.diploma.dto.EventType
-import ru.netology.diploma.dto.UserResponse
 import ru.netology.diploma.model.AttachmentModel
 import ru.netology.diploma.model.FeedModelState
 import ru.netology.diploma.repository.Repository
@@ -149,10 +146,10 @@ class EventViewModel @Inject constructor(
         _eventToEdit.value = event
     }
 
-    fun clearAttachmentEditEvent (event: Event) {
+    fun clearAttachmentEditEvent () {
         _eventToEdit.value = eventToEdit.value?.copy(attachment = null)
     }
-    fun clearLocationEditEvent (event: Event) {
+    fun clearLocationEditEvent () {
         _eventToEdit.value = eventToEdit.value?.copy(coords = null)
     }
 
@@ -222,19 +219,6 @@ class EventViewModel @Inject constructor(
     }
 
 // user
-
-    private val _userList = MutableLiveData<UserResponse>()
-    val userList: LiveData<UserResponse> = _userList
-
-
-    fun getUserById(id: Int) = runBlocking {
-        try {
-            _userList.value = repository.getUserById(id)
-            _dataState.value = FeedModelState()
-        } catch (e: Exception) {
-            _dataState.value = FeedModelState(error = true)
-        }
-    }
 
     var speaker: Boolean = false
 

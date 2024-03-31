@@ -24,6 +24,7 @@ import ru.netology.diploma.R
 import ru.netology.diploma.databinding.FragmentMainBinding
 import ru.netology.diploma.viewmodel.AuthViewModel
 
+@Suppress("unused")
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 

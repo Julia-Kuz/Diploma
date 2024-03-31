@@ -32,7 +32,7 @@ import ru.netology.diploma.util.createFileFromInputStream
 import ru.netology.diploma.util.getInputStreamFromUri
 import ru.netology.diploma.viewmodel.PostViewModel
 
-
+@Suppress("unused")
 @AndroidEntryPoint
 class NewPostFragment : Fragment() {
 
@@ -205,7 +205,7 @@ class NewPostFragment : Fragment() {
                 .setAnchorView(binding.edit)
                 .setTextMaxLines(3)
                 .setText(R.string.something_went_wrong)
-                .setBackgroundTint(android.graphics.Color.rgb(0, 102, 255))
+                .setBackgroundTint(Color.rgb(0, 102, 255))
                 .show()
 
         }
